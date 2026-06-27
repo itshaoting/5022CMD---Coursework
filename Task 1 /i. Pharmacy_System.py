@@ -118,51 +118,55 @@ ht.display()
 # Your Inventory System must display, have insert function and a search function,
 # while the edit and delete function are optional. ---
 
-while True:
-    print("\n======= Pharmacy Inventory System =======")
-    print("1. Display Medicines")
-    print("2. Insert Medicine")
-    print("3. Search Medicine")
-    print("4. Exit")
+def menu():
+    while True:
+        print("\n======= Pharmacy Inventory System =======")
+        print("1. Display Medicines")
+        print("2. Insert Medicine")
+        print("3. Search Medicine")
+        print("4. Exit")
 
-    choice = input("Enter choice: ")
-# Accepts user input to perform different operations.
+        choice = input("Enter choice: ")
+    # Accepts user input to perform different operations.
 
-    # 1. Display
-    if choice == "1":
-        ht.display()
+        # 1. Display
+        if choice == "1":
+            ht.display()
+        # This function displays the full pharmacy inventory, which helps verify insertion and collisions.
 
-    # 2. Insert Function
-    elif choice == "2":
-        med_id = int(input("Enter Medicine ID: "))
-        med_name = input("Enter Medicine Name: ")
-        med_type = input("Enter Medicine Type: ")
-        med_no = int(input("Enter Medicine Quantity: "))
-        med_price = float(input("Enter Price: "))
+        # 2. Insert Function
+        elif choice == "2":
+            med_id = int(input("Enter Medicine ID: "))
+            med_name = input("Enter Medicine Name: ")
+            med_type = input("Enter Medicine Type: ")
+            med_no = int(input("Enter Medicine Quantity: "))
+            med_price = float(input("Enter Price: "))
 
-        medicine = Medicine(med_id, med_name, med_type,
-                            med_no, med_price)
-        ht.insert(med_id, medicine)
-        print("Medicine inserted successfully.")
-    # This function creates new Medicine object and stores it in hash table.
+            medicine = Medicine(med_id, med_name, med_type,
+                                med_no, med_price)
+            ht.insert(med_id, medicine)
+            print("Medicine inserted successfully.")
+        # This function creates new Medicine object and stores it in hash table.
 
-    # 3. Search Function
-    elif choice == "3":
-        med_id = int(input("Enter Medicine ID to search: "))
-        result = ht.search(med_id)
+        # 3. Search Function
+        elif choice == "3":
+            med_id = int(input("Enter Medicine ID to search: "))
+            result = ht.search(med_id)
 
-        if result:
-            print("Found: ", result)
+            if result:
+                print("Found: ", result)
+            else:
+                print("Medicine not found.")
+        # This function searches hash table using key and return matching record if exists.
+
+
+        # 4. Exit Function
+        elif choice == "4":
+            print("Exiting System...")
+            break
+
         else:
-            print("Medicine not found.")
-    # This function searches hash table using key and return matching record if exists.
+            print("Invalid choice. Try again.")
+        # This function terminates the program loop. Else function handles invalid menu input.
 
-
-    # 4. Exit Function
-    elif choice == "4":
-        print("Exiting System...")
-        break
-
-    else:
-        print("Invalid choice. Try again.")
-    # This function terminates the program loop. Else function handles invalid menu input.
+menu()
