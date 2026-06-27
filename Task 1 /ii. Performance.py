@@ -140,7 +140,7 @@ array_time = end - start
 
 
 # Results
-print("\n===== Performance Comparison between Hash Table and Array =====")
+print("\n=== Performance Comparison between Hash Table and Array ===")
 print(f"Hash Table Search Time: {hash_time:.7f} seconds")
 print(f"Array Search Time     : {array_time:.7f} seconds")
 # This section displays the execution times for both search methods.
